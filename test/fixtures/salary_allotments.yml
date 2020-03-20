@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  basic: 9.99
+  hra: 9.99
+  da: 9.99
+  income_tax: 9.99
+  state_tax: 9.99
+  employee: one
+
+two:
+  basic: 9.99
+  hra: 9.99
+  da: 9.99
+  income_tax: 9.99
+  state_tax: 9.99
+  employee: two

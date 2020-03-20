@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Leaves</h1>
+
+</br>
+<div class="table-responsive">
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th>Employee Id</th>
+        <th>Employee Name</th>
+        <th>Availed Leaves Count</th>
+
+        <th>Availed Leaves</th>
+
+        <th>Operations</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @employees.each do |employee| %>
+      <tr>
+        <td><%= employee.id %></td>
+        <td><%= employee.name %></td>
+        <td><%= employee.leaves.count %></td>
+
+        <td><%= link_to "Availed Leave details", leafe_path(employee) %></td>
+        <td><%= link_to 'Create New Leave', new_leafe_path(employee) %></td>
+        
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<br>
+
+

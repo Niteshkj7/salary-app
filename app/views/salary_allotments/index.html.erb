@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Salary Allotments</h1>
+</br>
+<div class="table-responsive">
+  <table class="table">
+    <thead class="thead-dark">
+    <tr>
+      <th>Employee Id</th>
+      <th>Employee Name</th>
+      <th>Basic</th>
+      <th>Hra</th>
+      <th>Da</th>
+      <th>Income tax</th>
+      <th>State tax</th>
+      <th>New Salary Allotment</th>
+      <th>Edit</th>
+      <th>Delete</th>
+
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @salary_allotments.each do |salary_allotment| %>
+      <tr>
+        <td><%= salary_allotment.employee.id %></td>
+        <td><%= salary_allotment.employee.name %></td>
+        <td><%= salary_allotment.basic %></td>
+        <td><%= salary_allotment.hra %></td>
+        <td><%= salary_allotment.da %></td>
+        <td><%= salary_allotment.income_tax %></td>
+        <td><%= salary_allotment.state_tax %></td>
+        <td><%= link_to 'New Salary Allotment', new_salary_allotment_path(salary_allotment) %></td>
+        <td><%= link_to 'Edit', edit_salary_allotment_path(salary_allotment) %></td>
+        <td><%= link_to 'Destroy', salary_allotment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+
+<br>
+
+
+
+

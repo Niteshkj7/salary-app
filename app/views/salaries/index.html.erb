@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Salaries</h1>
+</br>
+
+<div class="table-responsive">
+  <table class="table">
+    <thead class="thead-dark">
+    <tr>
+      <th>Employee Id </th>
+      <th>Employee Name</th>
+      <th>Loss of pay count</th>
+      <th>Employee's Total Salary</th>
+      <th>Operations</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @employees.each do |employee| %>
+      <tr>
+        <td><%= employee.id %></td>
+        <td><%= employee.name %></td>
+        <td><%= employee.leaves.where(:leave_type => "loss of pay").count %></td>
+        <td><%= Salary.total_salary(employee) %></td>
+
+        <td><%= link_to 'Create PDF Payslip', generate_payslip_path(employee, :format => :pdf), target: '_blank' %></td>
+
+
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

@@ -1,0 +1,32 @@
+</br>
+<h2> Salary Details </h2>
+<div class="table-responsive">
+  <table class="table">
+    <thead class="thead-dark">
+
+
+    <tr>
+      <th>Basic</th>
+      <th>HRA</th>
+      <th>DA</th>
+      <th>Income tax</th>
+      <th>State tax</th>
+      <th>Employee Name</th>
+
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <tr>
+        <td><%= @salary_allotment.basic %></td>
+        <td><%= @salary_allotment.hra %></td>
+        <td><%= @salary_allotment.da %></td>
+        <td><%= @salary_allotment.income_tax %></td>
+        <td><%= @salary_allotment.state_tax %></td>
+        <td><%= @salary_allotment.employee.name %> </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+

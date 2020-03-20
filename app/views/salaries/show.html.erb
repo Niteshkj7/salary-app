@@ -1,0 +1,59 @@
+<p>
+  <strong>Employee:</strong>
+  <%= @employee.name %>
+</p>
+
+<p>
+  <strong>Present Days:</strong>
+  <% leaves = Leave.where(:leave_type => "loss of pay", :employee_id => @employee.id).count %>
+  <% days_in_current_month = Time.days_in_month(Time.now.month) %>
+  <%= working_days = (days_in_current_month - leaves) %>
+</p>
+
+<p>
+  <strong>Total Working Days</strong>
+  
+  <%= Time.days_in_month(Time.now.month) %>
+  
+</p>
+
+
+<p>
+  <strong>Loss of Pay</strong>
+  <%= leaves %>
+</p>
+
+
+
+<p>
+  <strong>Basic</strong>
+  <%= ((@employee.salary_allotment.basic * working_days) / days_in_current_month).round(2) %>
+</p>
+
+
+<p>
+  <strong> HRA </strong>
+  <%= ((@employee.salary_allotment.hra * working_days) / days_in_current_month).round(2) %>
+</p>
+
+
+<p>
+  <strong> DA </strong>
+  <%= ((@employee.salary_allotment.da * working_days) / days_in_current_month).round(2) %>
+</p>
+
+<p>
+  <strong> Income Tax </strong>
+  <%= ((@employee.salary_allotment.income_tax * working_days) / days_in_current_month).round(2) %>
+</p>
+
+
+<p>
+  <strong>State Tax</strong>
+  <%= ((@employee.salary_allotment.state_tax * working_days) / days_in_current_month).round(2) %>
+</p>
+
+<p>
+  <strong>Total salary:</strong>
+  <%= Salary.total_salary(@employee) %>
+</p>

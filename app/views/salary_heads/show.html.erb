@@ -1,0 +1,43 @@
+
+</br>
+<h2> Salary Head Details </h2>
+</br>
+<div class="table-responsive">
+  <table class="table">
+    <thead class="thead-dark">
+
+     <tr>
+       <th>Employee Name</th>
+       <th>Earning</th>
+       <th>Deduction</th>
+       <th>Salary Head Name</th>
+       <th>Edit</th>
+       <th>Delete</th>
+
+       <th colspan="3"></th>
+     </tr>
+   </thead>
+
+   <tbody>
+     <tr>
+
+      <% @salary_heads.each do |salary_head| %> 
+
+
+      <td><%= salary_head.employee.name %></td>
+      <td><%= salary_head.earning %></td>
+      <td><%= salary_head.deduction %></td>
+      <td><%= salary_head.head_name %></td>
+
+      <td><%= link_to 'Edit', edit_salary_head_path(@salary_head) %></td>
+      <td><%= link_to 'Destroy', @salary_head, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+
+  </tbody>
+</table>
+</div>
+<br>
+
+<%= link_to 'Back', salary_heads_path %>
+

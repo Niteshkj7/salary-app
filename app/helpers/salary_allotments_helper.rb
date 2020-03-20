@@ -1,0 +1,2 @@
+module SalaryAllotmentsHelper
+end

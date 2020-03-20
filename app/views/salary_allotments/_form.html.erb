@@ -1,0 +1,47 @@
+<%= form_with(model: salary_allotment, local: true) do |form| %>
+  <% if salary_allotment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(salary_allotment.errors.count, "error") %> prohibited this salary_allotment from being saved:</h2>
+
+      <ul>
+      <% salary_allotment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :basic %>
+    <%= form.text_field :basic, autofocus: true, class: "form-control", required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :hra %>
+    <%= form.text_field :hra, autofocus: true, class: "form-control", required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :da %>
+    <%= form.text_field :da, autofocus: true, class: "form-control", required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :income_tax %>
+    <%= form.text_field :income_tax, autofocus: true, class: "form-control", required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :state_tax %>
+    <%= form.text_field :state_tax, autofocus: true, class: "form-control", required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :employee_id %>
+    <%= form.collection_select :employee_id, Employee.order(:name),:id,:name, class: "form-control", required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= form.submit "Submit", class: "btn btn btn-primary"%>
+  </div>
+<% end %>

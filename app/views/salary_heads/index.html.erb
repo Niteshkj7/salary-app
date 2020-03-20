@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Salary Heads</h1>
+</br>
+
+<div class="table-responsive">
+  <table class="table">
+    <thead class="thead-dark">
+    <tr>
+      <th>Employee Id</th>
+      <th>Employee Name</th>
+      <th>Existing Salary Heads </th>
+      <th>Operations</th>
+
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @employees.each do |employee| %>
+      <tr>
+        <td><%= employee.id %></td>
+        <td><%= employee.name %></td>
+        <% if employee.salary_heads.present? %>
+        <td><%= link_to "Salary Heads", salary_head_path(employee) %></td>
+        <% else %>
+        <td> No Salary heads present </td>
+        <% end %>
+        <td><%= link_to 'Create New Salary Head', new_salary_head_path %></td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+
+<br>
+
