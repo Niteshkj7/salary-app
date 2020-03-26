@@ -7,6 +7,20 @@ gem 'awesome_print', '~> 1.8'
 gem 'jquery-rails'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
+gem 'humanize'
+gem 'font-awesome-sass'
+gem 'rubyzip'
+gem 'axlsx'
+gem 'axlsx_rails'
+gem 'csv', '~> 0.0.1'
+gem 'bootstrap-datepicker-rails'
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
+
+gem 'jquery-ui-rails'
+
+
+
 
 
 

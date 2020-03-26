@@ -22,11 +22,11 @@
         <td><%= employee.id %></td>
         <td><%= employee.name %></td>
         <% if employee.salary_heads.present? %>
-        <td><%= link_to "Salary Heads", salary_head_path(employee) %></td>
+        <td><%= link_to "Salary Heads", salary_head_path(employee), class: "btn btn-primary" %></td>
         <% else %>
         <td> No Salary heads present </td>
         <% end %>
-        <td><%= link_to 'Create New Salary Head', new_salary_head_path %></td>
+        <td><%= link_to 'Create New Salary Head', new_salary_head_path, class: "btn btn-primary" %></td>
         
       </tr>
     <% end %>

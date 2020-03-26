@@ -10,10 +10,50 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+
+//= require turbolinks
+
+//= require jquery
+//= require moment
+
+
+
 //= require jquery3
 //= require popper
 //= require bootstrap
 //= require rails-ujs
+//= require jquery_ujs
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+
+<script>
+    $(document).ready(function(){
+        var date_input=$('input[name="date"]'); 
+        var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+        date_input.datepicker({
+            format: 'mm/dd/yyyy',
+            container: container,
+            todayHighlight: true,
+            autoclose: true,
+        })
+    })
+
+
+
+
+<script>
+    $(document).ready(function(){
+        var date_input=$('input[name="leave_date"]'); 
+        var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+        date_input.datepicker({
+            format: 'mm/dd/yyyy',
+            container: container,
+            todayHighlight: true,
+            autoclose: true,
+        })
+    })
+
+
+</script>

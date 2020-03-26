@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Salary Slip</title>
-
+<title>PDFs - Ruby on Rails</title>
+    <% stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" %>
+    <% wicked_pdf_stylesheet_link_tag 'dashboard', media: 'all', 'data-turbolinks-track' => true %>
+    <% wicked_pdf_stylesheet_link_tag('bootstrap') %>
 </head>
 <body>
-  <div class='container'>
-
-  </div>
+    <%= yield %>
 </body>
 </html>

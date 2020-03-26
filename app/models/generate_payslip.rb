@@ -1,0 +1,4 @@
+class GeneratePayslip < ApplicationRecord
+
+  
+end

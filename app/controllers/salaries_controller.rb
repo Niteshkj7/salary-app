@@ -12,6 +12,12 @@ class SalariesController < ApplicationController
   # GET /salaries/1
   # GET /salaries/1.json
   def show
+    @employee = Employee.find (params[:id])
+    @salary_allotment = @employee.salary_allotment
+    @leaves = @employee.leaves
+
+
+  
   end
 
   # GET /salaries/new

@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :employees
   resources :generate_payslips
 
+  match '/generate_payslips/index/:id', to: 'generate_payslips#index', via: 'get'
+
 
 
   root 'employees#index'

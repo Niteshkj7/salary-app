@@ -1,7 +1,7 @@
 <%= form_with(model: leafe, local: true) do |form| %>
   <% if leafe.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(leafe.errors.count, "error") %> prohibited this leafe from being saved:</h2>
+      <h2><%= pluralize(leafe.errors.count, "error") %> prohibited this leave from being saved:</h2>
 
       <ul>
       <% leafe.errors.full_messages.each do |message| %>
@@ -11,22 +11,28 @@
     </div>
   <% end %>
 
-  <div class="form-group">
-    <%= form.label :leave_type %>
-    <%= form.collection_select :leave_type, Leave.select('distinct leave_type'),:leave_type,:leave_type, class: "form-control", required: true %>
+  <div class="form-group"> 
+  <%= form.label :leave_type %>
+  <%= form.select :leave_type, options_for_select([["Select One", ""], "Casual Leave", "Sick Leave", "Loss of Pay"]), {}, { class: "form form-group form-control" } %>
   </div>
 
-  <div class="form-group">
-    <%= form.label :leave_date %>
-    <%= form.date_select :leave_date, autofocus: true, class: "form-control", required: true %>
-  </div>
+<div class="form-group"> 
+  <%= form.label :leave_date, for: "leave_date" %>
+  <%= form.text_field :leave_date, class: "form-control",  placeholder: "MM/DD/YYY" %>
+</div>
+
+
 
   <div class="form-group">
     <%= form.label :employee_id %>
-    <%= form.collection_select :employee_id, Employee.order(:name),:id,:name, class: "form-control", required: true %>
+    <%= form.select :employee_id, options_for_select(Employee.all.collect {|emp| [ emp.name, emp.id ] }, {:prompt => 'Select Person'}), {}, { class: "form form-group form-control" } %>
   </div>
+
+  
 
   <div class="form-group">
     <%= form.submit "Submit", class: "btn btn btn-primary"%>
   </div>
 <% end %>
+
+

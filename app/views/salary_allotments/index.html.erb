@@ -31,9 +31,9 @@
         <td><%= salary_allotment.da %></td>
         <td><%= salary_allotment.income_tax %></td>
         <td><%= salary_allotment.state_tax %></td>
-        <td><%= link_to 'New Salary Allotment', new_salary_allotment_path(salary_allotment) %></td>
-        <td><%= link_to 'Edit', edit_salary_allotment_path(salary_allotment) %></td>
-        <td><%= link_to 'Destroy', salary_allotment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'New Salary Allotment', new_salary_allotment_path(salary_allotment), class: "btn btn-primary"  %></td>
+        <td><%= link_to 'Edit', edit_salary_allotment_path(salary_allotment), class: "btn btn-primary"  %></td>
+        <td><%= link_to 'Destroy', salary_allotment, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary"  %></td>
       </tr>
     <% end %>
   </tbody>

@@ -1,7 +1,7 @@
 <%= form_with(model: salary_head, local: true) do |form| %>
   <% if salary_head.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(salary_head.errors.count, "error") %> prohibited this salary_head from being saved:</h2>
+      <h2><%= pluralize(salary_head.errors.count, "error") %> prohibited this salary head from being saved:</h2>
 
       <ul>
       <% salary_head.errors.full_messages.each do |message| %>
@@ -26,9 +26,9 @@
     <%= form.check_box :deduction, autofocus: true, class: "form-control" %>
   </div>
 
-   <div class="form-group">
-    <%= form.label :employee_id %> </br>
-    <%= form.collection_select :employee_id, Employee.order(:name),:id,:name, class: "form-control", required: true %>
+    <div class="form-group">
+    <%= form.label :employee_id %>
+    <%= form.select :employee_id, options_for_select(Employee.all.collect {|emp| [ emp.name, emp.id ] }, {:prompt => 'Select Person'}), {}, { class: "form form-group form-control" } %>
   </div>
 
    <div class="form-group">

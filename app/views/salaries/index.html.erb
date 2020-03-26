@@ -11,7 +11,8 @@
       <th>Employee Name</th>
       <th>Loss of pay count</th>
       <th>Employee's Total Salary</th>
-      <th>Operations</th>
+      <th>PDF PaySlip</th>
+      <th>Excel report </th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -24,11 +25,11 @@
         <td><%= employee.leaves.where(:leave_type => "loss of pay").count %></td>
         <td><%= Salary.total_salary(employee) %></td>
 
-        <td><%= link_to 'Create PDF Payslip', generate_payslip_path(employee, :format => :pdf), target: '_blank' %></td>
+        <td><%= link_to 'PDF Payslip', generate_payslip_path(employee, :format => :pdf), target: '_blank', class: 'btn btn-primary' %></td>
+        
+        <td><%= link_to "Excel report", {:controller => "generate_payslips", :action => "index", :id => employee.id, :format => "xlsx"}, target: '_blank', class: 'btn btn-primary' %> </td>
 
-
-
-      </tr>
+       </tr>
     <% end %>
   </tbody>
 </table>

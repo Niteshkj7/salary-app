@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>All Employees</h1>
+<h1>All Employee Details</h1>
 </br>
 
 <div class="table-responsive">
@@ -28,11 +28,11 @@
          <td><%= employee.email %></td>
 
          <td><%= employee.address %></td>
-         <td><%= employee.joining_date %></td>
-         <td><%= employee.gender %></td>
+         <td><%= employee.joining_date.strftime("%d/%m/%Y") %></td>
+         <td><%= employee.gender.capitalize %></td>
 
-         <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
-         <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+         <td><%= link_to 'Edit', edit_employee_path(employee), class: 'btn btn-primary' %></td>
+         <td><%= link_to 'Delete', employee, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary' %></td>
        </tr>
      <% end %>
    </tbody>

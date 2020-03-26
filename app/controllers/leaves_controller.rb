@@ -31,7 +31,7 @@ class LeavesController < ApplicationController
 
     respond_to do |format|
       if @leafe.save
-        format.html { redirect_to leaves_path, notice: 'Leave was successfully created.' }
+        format.html { redirect_to leaves_path}
         format.json { render :show, status: :created, location: @leafe }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class LeavesController < ApplicationController
   def update
     respond_to do |format|
       if @leafe.update(leafe_params)
-        format.html { redirect_to @leafe, notice: 'Leave was successfully updated.' }
+        format.html { redirect_to @leafe }
         format.json { render :show, status: :ok, location: @leafe }
       else
         format.html { render :edit }
@@ -59,7 +59,7 @@ class LeavesController < ApplicationController
   def destroy
     @leafe.destroy
     respond_to do |format|
-      format.html { redirect_to leaves_url, notice: 'Leave was successfully destroyed.' }
+      format.html { redirect_to leaves_url }
       format.json { head :no_content }
     end
   end
@@ -74,6 +74,6 @@ class LeavesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def leafe_params
-      params.require(:leave).permit(:leave_type, :leave_date, :employee_id)
+      params.require(:leave).permit(:leave_type, :leave_date, :employee_id, :employee)
     end
 end

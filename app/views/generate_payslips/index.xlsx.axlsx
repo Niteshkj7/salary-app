@@ -1,0 +1,12 @@
+wb = xlsx_package.workbook
+
+wb.add_worksheet(name: "salary sheet") do |sheet|
+  # Create the header row
+  sheet.add_row ["Relyon soft"]
+  sheet.add_row ["Print Date: #{Date.today}"]
+
+  sheet.add_row ["Sl.No","Emp.ID","Empoyee Name","Date of Joining","Sal Calender Days","Pay Days","Present Days","Total Earnings","Total Deduction","Net Amount"]
+  # Create entries for each item
+    sheet.add_row [1,@employee.id, @employee.name,@employee.joining_date, Time.days_in_month(Time.now.month), @employee.working_days, @employee.working_days,  Salary.total_salary(@employee), Salary.total_deductions(@employee), (Salary.total_salary(@employee) - Salary.total_deductions(@employee))]
+
+end
